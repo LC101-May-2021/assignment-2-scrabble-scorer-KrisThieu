@@ -81,17 +81,17 @@ function scrabbleScore(word) {
 }
 
 const scoringAlgorithms = [
- {name : "Simple Score",
-description : "Each letter is worth 1 point.",
-scoreFunction : "simpleScore"},
+  Object({name : "Simple Score",
+  description : "Each letter is worth 1 point.",
+  scoreFunction : "simpleScore"}),
 
-{name : "Bonus Vowels",
-description : "Vowels are 3 pts, consonants are 1 pt.",
-scoreFunction : "vowelBonusScore"},
+  Object({name : "Bonus Vowels",
+  description : "Vowels are 3 pts, consonants are 1 pt.",
+  scoreFunction : "vowelBonusScore"}),
 
-{name : "Scrabble",
-description : "The traditional scoring algorithm.",
-scoreFunction : "scrabbleScore"}
+  Object({name : "Scrabble",
+  description : "The traditional scoring algorithm.",
+  scoreFunction : "scrabbleScore"})
 ];
 
 function scorerPrompt(word) {
