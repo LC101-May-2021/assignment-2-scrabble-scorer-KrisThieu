@@ -17,12 +17,10 @@ function oldScrabbleScorer(word) {
 	let score = 0;
  
 	for (let i = 0; i < word.length; i++) {
- 
 	  for (const pointValue in oldPointStructure) {
- 
-		 if (oldPointStructure[pointValue].includes(word[i])) {
-			score += pointValue;
-		 }
+      if (oldPointStructure[pointValue].includes(word[i])) {
+        score += parseInt(pointValue);
+      }
 	  }
 	}
 	return score;
