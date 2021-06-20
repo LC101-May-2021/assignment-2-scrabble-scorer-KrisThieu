@@ -55,7 +55,7 @@ function vowelBonusScore(word)
   return score;
 }
 
-function scrabbleScore(word) {	
+function oldScrabbleScorer(word) {	
   word = word.toLowerCase();
   let point = 0;
 
@@ -70,6 +70,8 @@ function scrabbleScore(word) {
 
 	return point;
 }
+
+let scrabbleScore;
 
 const scoringAlgorithms = [
   { name: "Simple Score", 
@@ -112,7 +114,7 @@ function scorerPrompt(word) {
     console.log( "Score for '" + word + "' : " + vowelBonusScore(word));
   }
   else if ( user_input == 2 ) {
-    console.log("Score for '" + word + "' : " +  scrabbleScore(word));
+    console.log("Score for '" + word + "' : " +  oldScrabbleScorer(word));
   }
 }
 
