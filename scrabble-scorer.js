@@ -87,11 +87,11 @@ scoreFunction : "simpleScore"},
 
 {name : "Bonus Vowels",
 description : "Vowels are 3 pts, consonants are 1 pt.",
-scoreFunction : "vowelBonusScore",},
+scoreFunction : "vowelBonusScore"},
 
 {name : "Scrabble",
 description : "The traditional scoring algorithm.",
-scoreFunction : "scrabbleScore",},
+scoreFunction : "scrabbleScore"}
 ];
 
 function scorerPrompt(word) {
