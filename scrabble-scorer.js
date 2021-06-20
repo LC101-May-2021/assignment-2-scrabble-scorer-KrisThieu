@@ -99,7 +99,7 @@ const scoringAlgorithms = [
   description: "The traditional scoring algorithm.",
   scoringFunction: function(word) 
   {
-    return oldScrabbleScorer(word);
+    return scrabbleScore(word);
   } }
 ];
 
