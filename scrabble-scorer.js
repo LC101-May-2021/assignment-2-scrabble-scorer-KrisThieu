@@ -13,7 +13,7 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+	/*word = word.toUpperCase();
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -25,7 +25,21 @@ function oldScrabbleScorer(word) {
 		 }
 	  }
 	}
-	return letterPoints;
+	return letterPoints;*/
+
+  word = word.toLowerCase();
+  let point = 0;
+
+	for (let i = 0; i < word.length; i++) {
+    for (const pointValue in newPointStructure) {
+		  if (word[i] == pointValue)
+      {
+        point += newPointStructure[word[i]];
+      }
+	  }
+	}
+
+	return point;
  }
 
 // your job is to finish writing these functions and variables that we've named //
@@ -35,7 +49,6 @@ function initialPrompt() {
    console.log("Let's play some scrabble!\n");
    let user_input = input.question("Enter a word: "); 
    return user_input;
-   //console.log(oldScrabbleScorer(user_input));
 };
 
 function simpleScore(word)
@@ -59,11 +72,6 @@ function vowelBonusScore(word)
   return score;
 }
 
-//let simpleScore;
-
-//let vowelBonusScore;
-
-//let scrabbleScore;
 function scrabbleScore(word) {	
   word = word.toLowerCase();
   let point = 0;
@@ -81,26 +89,29 @@ function scrabbleScore(word) {
 }
 
 const scoringAlgorithms = [
-  { name: "Simple Score",
+  { name: "Simple Score", 
   description: "Each letter is worth 1 point.",
   scoringFunction: function(word) 
-  {
-    return simpleScore(word);
-  } }, 
+    {
+      return simpleScore(word);
+    } 
+  }, 
   
   { name: "Bonus Vowels",
   description: "Vowels are 3 pts, consonants are 1 pt.",
   scoringFunction: function(word)
-  {
-    return vowelBonusScore(word); 
-  } }, 
+    {
+      return vowelBonusScore(word); 
+    } 
+  }, 
   
   { name: "Scrabble",
   description: "The traditional scoring algorithm.",
   scoringFunction: function(word) 
-  {
-    return scrabbleScore(word);
-  } }
+    {
+      return oldScrabbleScorer(word);
+    } 
+  }
 ];
 
 function scorerPrompt(word) {
@@ -120,7 +131,6 @@ function scorerPrompt(word) {
   else if ( user_input == 2 ) {
     console.log("Score for '" + word + "' : " +  scrabbleScore(word));
   }
-
 }
 
 function transform(oldPointStructure) {
@@ -138,7 +148,7 @@ function transform(oldPointStructure) {
   }
   
   return newPointStructure;
-};
+}
 
 let newPointStructure = transform(oldPointStructure);
 
