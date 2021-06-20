@@ -21,7 +21,7 @@ function oldScrabbleScorer(word) {
 	  for (const pointValue in oldPointStructure) {
  
 		 if (oldPointStructure[pointValue].includes(word[i])) {
-			score += {pointValue};
+			score += pointValue;
 		 }
 	  }
 	}
