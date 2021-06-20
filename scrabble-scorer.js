@@ -14,18 +14,18 @@ const oldPointStructure = {
 
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
-	let letterPoints = "";
+	let score = 0;
  
 	for (let i = 0; i < word.length; i++) {
  
 	  for (const pointValue in oldPointStructure) {
  
 		 if (oldPointStructure[pointValue].includes(word[i])) {
-			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+			score += {pointValue};
 		 }
 	  }
 	}
-	return letterPoints;
+	return score;
 }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
