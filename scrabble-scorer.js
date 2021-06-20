@@ -81,26 +81,26 @@ function scrabbleScore(word) {
 }
 
 const scoringAlgorithms = [
-  Object({ name: "Simple Score",
+  { name: "Simple Score",
   description: "Each letter is worth 1 point.",
   scoringFunction: function(word) 
   {
     return simpleScore(word)
-  } }), 
+  } }, 
   
-  Object({ name: "Bonus Vowels",
+  { name: "Bonus Vowels",
   description: "Vowels are 3 pts, consonants are 1 pt.",
   scoringFunction: function(word)
   {
     return vowelBonusScore(word) 
-  } }), 
+  } }, 
   
-  Object({ name: "Scrabble",
+  { name: "Scrabble",
   description: "The traditional scoring algorithm.",
   scoringFunction: function(word) 
   {
-    return scrabbleScore(word)
-  } })
+    return oldScrabbleScorer(word)
+  } }
 ];
 
 function scorerPrompt(word) {
