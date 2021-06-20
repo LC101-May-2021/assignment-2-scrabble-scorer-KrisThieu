@@ -85,21 +85,21 @@ const scoringAlgorithms = [
   description: "Each letter is worth 1 point.",
   scoringFunction: function(word) 
   {
-    return simpleScore(word)
+    return simpleScore(word);
   } }, 
   
   { name: "Bonus Vowels",
   description: "Vowels are 3 pts, consonants are 1 pt.",
   scoringFunction: function(word)
   {
-    return vowelBonusScore(word) 
+    return vowelBonusScore(word); 
   } }, 
   
   { name: "Scrabble",
   description: "The traditional scoring algorithm.",
   scoringFunction: function(word) 
   {
-    return oldScrabbleScorer(word)
+    return oldScrabbleScorer(word);
   } }
 ];
 
