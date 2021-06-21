@@ -55,7 +55,7 @@ function vowelBonusScore(word)
   return score;
 }
 
-function oldScrabbleScorer(word) {	
+function scrabbleScore(word) {	
   word = word.toLowerCase();
   let point = 0;
 
@@ -71,31 +71,20 @@ function oldScrabbleScorer(word) {
 	return point;
 }
 
-let scrabbleScore;
-
 const scoringAlgorithms = [
   { name: "Simple Score", 
   description: "Each letter is worth 1 point.",
-  scoringFunction: function(word) 
-    {
-      return simpleScore(word);
-    } 
+  scoringFunction: simpleScore
   }, 
   
   { name: "Bonus Vowels",
   description: "Vowels are 3 pts, consonants are 1 pt.",
-  scoringFunction: function(word)
-    {
-      return vowelBonusScore(word); 
-    } 
+  scoringFunction: vowelBonusScore
   }, 
   
   { name: "Scrabble",
   description: "The traditional scoring algorithm.",
-  scoringFunction: function(word) 
-    {
-      return oldScrabbleScorer(word);
-    } 
+  scoringFunction: oldScrabbleScorer
   }
 ];
 
@@ -114,7 +103,7 @@ function scorerPrompt(word) {
     console.log( "Score for '" + word + "' : " + vowelBonusScore(word));
   }
   else if ( user_input == 2 ) {
-    console.log("Score for '" + word + "' : " +  oldScrabbleScorer(word));
+    console.log("Score for '" + word + "' : " +  scrabbleScore(word));
   }
 }
 
@@ -156,4 +145,3 @@ module.exports = {
 	runProgram: runProgram,
 	scorerPrompt: scorerPrompt
 };
-
