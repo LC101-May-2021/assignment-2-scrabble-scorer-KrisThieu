@@ -97,13 +97,19 @@ function scorerPrompt(word) {
   let user_input = input.question("Enter 0, 1, or 2: ");
 
   if ( user_input == 0 ) {
-    console.log( "Score for '" + word + "' : " + simpleScore(word));
+    //console.log( "Score for '" + word + "' : " + simpleScore(word));
+    console.log("algorithm name: ", scoringAlgorithms[0].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[0].scoringFunction(word));
   }
   else if ( user_input == 1 ) {
-    console.log( "Score for '" + word + "' : " + vowelBonusScore(word));
+    //console.log( "Score for '" + word + "' : " + vowelBonusScore(word));
+    console.log("algorithm name: ", scoringAlgorithms[1].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[1].scoringFunction(word));
   }
   else if ( user_input == 2 ) {
-    console.log("Score for '" + word + "' : " +  scrabbleScore(word));
+    //console.log("Score for '" + word + "' : " +  scrabbleScore(word));
+    console.log("algorithm name: ", scoringAlgorithms[2].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[2].scoringFunction(word));
   }
 }
 
