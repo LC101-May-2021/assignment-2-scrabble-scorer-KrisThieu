@@ -95,16 +95,19 @@ function scorerPrompt(word) {
   console.log("1 - Vowel Bonus: Vowels are worth 3 points");
   console.log("2 - Scrabble: Uses scrabble point system");
   let user_input = input.question("Enter 0, 1, or 2: ");
+  let obj;
 
   if ( user_input == 0 ) {
-    console.log( "Score for '" + word + "' : " + simpleScore(word));
+    obj = scoringAlgorithms[0];
   }
   else if ( user_input == 1 ) {
-    console.log( "Score for '" + word + "' : " + vowelBonusScore(word));
+    obj = scoringAlgorithms[1];
   }
   else if ( user_input == 2 ) {
-    console.log("Score for '" + word + "' : " +  scrabbleScore(word));
+    obj = scoringAlgorithms[2];
   }
+
+  return obj;
 }
 
 function transform(oldPointStructure) {
@@ -127,8 +130,9 @@ function transform(oldPointStructure) {
 let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
-   scorerPrompt(initialPrompt());
-
+  let word = initialPrompt()
+  let score = scorerPrompt(word);
+  console.log("Score for '" + word + "' : " +  score.scoringFunction(word));
 }
 
 // Don't write any code below this line //
